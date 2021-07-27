@@ -1,0 +1,14 @@
+{% extends "score_board/base.html" %}
+
+{% block title %}Rename {{team.team_name}}{% endblock %}
+
+{% block content %}
+    <form method="POST" action="{% url 'rename' team_id=team.id %}">
+        {% csrf_token %}
+        <div class="form-group" style="margin-bottom: 20px;">
+            <h3>Team Name</h3>
+            <input value="{{team.team_name}}" type="text" class="form-control" placeholder="Enter name" name="name" required/>
+        </div>
+        <button style="margin: 20px;" class="btn btn-secondary" type="submit">Rename</button>
+    </form>
+{% endblock %}

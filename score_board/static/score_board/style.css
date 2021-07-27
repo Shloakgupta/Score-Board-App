@@ -1,0 +1,30 @@
+.score_board { 
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.score_board_header {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+}
+ul {
+    padding: 30px;
+    width: 200px;
+    height: 200px;
+}
+.score_board_container {
+    display: flex;                                                                                                                                                   
+    align-items: center;
+    text-align: center;
+    width: 50%;
+    justify-content: center;
+}
+.detail:hover {
+    background-color: lightblue;
+    color: black;
+    transition: 0.8s;
+} 

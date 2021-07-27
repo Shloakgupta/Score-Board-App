@@ -1,0 +1,15 @@
+{% extends "score_board/base.html" %}
+
+{% block title %}Edit {{member.member_name}} from {{team.team_name}}{% endblock %}
+
+{% block content %}
+<form method="POST" action="{% url 'edit_member' team_id=team.id member_id=member.id %}">
+    {% csrf_token %}
+    <div class="form-group" style="margin-bottom: 20px;">
+        <h3>Member Name</h3>
+        <input value="{{member.member_name}}" type="text" class="form-control" placeholder="Enter name" name="name"
+            required />
+    </div>
+    <button style="margin: 20px;" class="btn btn-success" type="submit">Edit</button>
+</form>
+{% endblock %}

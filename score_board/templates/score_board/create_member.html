@@ -1,0 +1,14 @@
+{% extends "score_board/base.html" %}
+
+{% block title %}Adding a member to {{team.team_name}}{% endblock %}
+
+{% block content %}
+    <form method="POST" action="#">
+        {% csrf_token %}
+        <div class="form-group">
+            <h3>Member Name</h3>
+            <input type="text" class="form-control" placeholder="Enter name" name="name" required/>
+        </div>
+        <button style="margin: 10px;" class="btn btn-primary" type="submit">Create</button>
+    </form>
+{% endblock %}

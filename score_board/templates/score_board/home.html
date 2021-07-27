@@ -1,0 +1,17 @@
+{% extends "score_board/base.html" %}
+
+{% block title %}Home{% endblock %} 
+
+{% block content %}
+    {% if teams %}
+        {% for team in teams %}
+            <ul class="list-group">
+                <a href="{% url 'detail' team_id=team.id %}" class="list-group-item active detail">{{team.team_name}}:{{team.team_points}}</a>
+                {% for member in team.member_set.all %}
+                    <li class="list-group-item">{{member.member_name}}</li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+
+    {% endif %}
+{% endblock %}

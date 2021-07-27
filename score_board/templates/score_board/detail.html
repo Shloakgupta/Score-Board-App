@@ -1,0 +1,30 @@
+{% extends "score_board/base.html" %}
+
+{% block title %}{{team.team_name}}{% endblock %}
+
+{% block content %}
+<div class="score_board">
+    <h1>
+        <a href="{% url 'delete' team_id=team.id %}" class="btn btn-danger">X</a>
+        {{team.team_name}} :
+        {{team.team_points}}
+        <a href="{% url 'edit' team_id=team.id %}" class="btn btn-success">Edit</a>
+    </h1>
+    <div>
+        <a href="{% url 'add' team_id=team.id %}" class="btn btn-info">Add Points</a>
+        <a href="{% url 'rename' team_id=team.id %}" class="btn btn-secondary">Rename</a>
+        <a href="{% url 'create_member' team_id=team.id %}" class="btn btn-primary">Create Member</a>
+    </div>
+    <ul class="list_group">
+        {% for member in team.member_set.all %}
+        <li style="width: 200px;" class="list-group-item">
+            <a href="{% url 'delete_member' member_id=member.id team_id=team.id %}"
+                style="font-size: x-small; height: 30px; width: 30px; float: left;" class="btn btn-danger">X</a>
+            {{member.member_name}}
+            <a href="{% url 'edit_member' member_id=member.id team_id=team.id %}"
+                style="font-size: x-small; height: 30px; width: 40px; float: right;" class="btn btn-success">Edit</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
